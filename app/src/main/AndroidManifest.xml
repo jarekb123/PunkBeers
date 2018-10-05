@@ -2,6 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.butajlo.punkbeers">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".base.App"
         android:allowBackup="true"

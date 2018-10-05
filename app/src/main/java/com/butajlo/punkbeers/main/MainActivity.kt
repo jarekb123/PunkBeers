@@ -2,6 +2,7 @@ package com.butajlo.punkbeers.main
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import com.butajlo.punkbeers.R
 import com.butajlo.punkbeers.usecase.GetRandomBeerUseCase
 import dagger.android.support.DaggerAppCompatActivity
@@ -14,17 +15,19 @@ class MainActivity : DaggerAppCompatActivity() {
 
     @Inject lateinit var getRandomBeerUseCase: GetRandomBeerUseCase
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         getRandomBeerUseCase.execute(Unit)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
+                .doOnNext {
                     tv_beer_id.text = it.id.toString()
                     tv_beer_name.text = it.name
-                }.dispose()
+                }
+                .doOnError { Log.e(localClassName, "error", it) }
+                .subscribe()
 
     }
 

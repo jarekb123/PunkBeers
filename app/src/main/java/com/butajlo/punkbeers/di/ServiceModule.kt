@@ -1,4 +1,4 @@
-package com.butajlo.punkbeers.network
+package com.butajlo.punkbeers.di
 
 import com.butajlo.punkbeers.service.PunkService
 import dagger.Module

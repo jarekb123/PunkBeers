@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface PunkService {
 
-    @GET("/beers/random")
+    @GET("beers/random")
     fun getRandomBeer(): Observable<BeerEntity>
 
 }

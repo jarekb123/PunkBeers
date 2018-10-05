@@ -32,7 +32,7 @@ kapt {
 dependencies {
 
     implementation project(":domain")
-    implementation project(":io")
+    implementation project(":data")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
@@ -53,6 +53,15 @@ dependencies {
     def rxDep = rootProject.ext.rxDependencies
     implementation rxDep.rxJava
     implementation rxDep.rxAndroid
+
+    def retrofitDep = rootProject.ext.retrofitDependencies
+    implementation retrofitDep.retrofit
+    implementation retrofitDep.retrofitGsonConverter
+    implementation retrofitDep.retrofitRxAdapter
+
+    def okHttpDep = rootProject.ext.okHttpDependencies
+    implementation okHttpDep.loggingInterceptor
+    implementation okHttpDep.okHttp
 
 
     testImplementation 'junit:junit:4.12'

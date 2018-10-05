@@ -31,7 +31,7 @@ ext {
     retrofitDependencies = [
             retrofit: "com.squareup.retrofit2:retrofit:$retrofit",
             retrofitGsonConverter: "com.squareup.retrofit2:converter-gson:$retrofit",
-            retrofitRxAdapter: "com.squareup.retrofit2:adapter-rxjava:$retrofit"
+            retrofitRxAdapter: "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
     ]
 
     rxDependencies = [
