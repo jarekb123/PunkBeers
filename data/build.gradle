@@ -1,0 +1,39 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+sourceCompatibility = "8"
+targetCompatibility = "8"
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+
+dependencies {
+    implementation project(":domain")
+
+    def kotlinDependencies = rootProject.ext.kotlinDependencies
+    implementation kotlinDependencies.kotlin
+
+    def daggerDep = rootProject.ext.daggerDependencies
+    implementation daggerDep.dagger
+    kapt daggerDep.daggerCompiler
+
+
+    def retrofitDep = rootProject.ext.retrofitDependencies
+    implementation retrofitDep.retrofit
+    implementation retrofitDep.retrofitGsonConverter
+    implementation retrofitDep.retrofitRxAdapter
+
+    def rxDep = rootProject.ext.rxDependencies
+    implementation rxDep.rxJava
+    implementation rxDep.rxAndroid
+
+}

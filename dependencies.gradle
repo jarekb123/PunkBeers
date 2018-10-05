@@ -1,0 +1,42 @@
+ext {
+    dagger = "2.16"
+    rxJava = "2.2.2"
+    rxAndroid = "2.1.0"
+    retrofit = "2.4.0"
+    okHttp = "3.11.0"
+    gson = "2.8.5"
+    picasso = "2.71828"
+    javax = "1.2"
+
+    kotlin_version = "1.2.71"
+
+
+
+    kotlinDependencies = [
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    ]
+
+    daggerDependencies = [
+            dagger: "com.google.dagger:dagger:$dagger",
+            daggerCompiler: "com.google.dagger:dagger-compiler:$dagger",
+            daggerAndroid: "com.google.dagger:dagger-android-support:$dagger",
+            daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:$dagger"
+    ]
+
+    okHttpDependencies = [
+            okHttp: "com.squareup.okhttp3:okhttp:$okHttp",
+            loggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$okHttp"
+    ]
+
+    retrofitDependencies = [
+            retrofit: "com.squareup.retrofit2:retrofit:$retrofit",
+            retrofitGsonConverter: "com.squareup.retrofit2:converter-gson:$retrofit",
+            retrofitRxAdapter: "com.squareup.retrofit2:adapter-rxjava:$retrofit"
+    ]
+
+    rxDependencies = [
+            rxJava: "io.reactivex.rxjava2:rxjava:$rxJava",
+            rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroid"
+    ]
+
+}
