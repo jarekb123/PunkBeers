@@ -6,5 +6,10 @@ data class Beer(
         val id: Long,
         val name: String,
         val description: String,
-        @SerializedName("image_url") val imageUrl: String
+        @SerializedName("image_url") val imageUrl: String,
+        val tagline: String,
+        val abv: Float,
+        val ibu: Float,
+        @SerializedName("target_og") val targetOg: Float
+
 )
