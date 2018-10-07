@@ -1,9 +1,9 @@
 package com.butajlo.punkbeers.repository
 
-import com.butajlo.punkbeers.model.Beer
+import com.butajlo.punkbeers.model.BeerEntity
 import io.reactivex.Observable
 
 interface PunkRepository {
-    fun searchByName(name: String) : List<Beer>
-    fun getRandomBeer(): Observable<Beer>
+    fun searchByName(name: String) : List<BeerEntity>
+    fun getRandomBeer(): Observable<BeerEntity>
 }
