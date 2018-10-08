@@ -5,7 +5,8 @@
 
     <com.butajlo.punkbeers.view.beersimplecard.BeerSimpleCard
         android:id="@+id/beer_card_random"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 
 </LinearLayout>

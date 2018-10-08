@@ -18,8 +18,7 @@ import kotlin.reflect.KClass
 @MapKey
 annotation class ViewModelKey(val value: KClass<out ViewModel>)
 
-@Singleton
-class ViewModelFactory @Inject constructor(private val viewModels: Map<Class<out ViewModel>, Provider<ViewModel>>)
+class ViewModelFactory @Inject constructor(private val viewModels: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>)
     : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
@@ -28,11 +27,6 @@ class ViewModelFactory @Inject constructor(private val viewModels: Map<Class<out
 
 @Module
 abstract class ViewModelModule {
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(HomeFragmentViewModel::class)
-    abstract fun bindHomeFragmentViewModel(viewModel: HomeFragmentViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

@@ -6,11 +6,15 @@ import com.butajlo.punkbeers.screens.model.toVM
 import com.butajlo.punkbeers.usecase.GetRandomBeerUseCase
 import com.butajlo.punkbeers.view.beersimplecard.BeerSimpleViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class HomeFragmentViewModel(private val getRandomBeerUseCase: GetRandomBeerUseCase) : ViewModel() {
+class HomeFragmentViewModel @Inject constructor(private val getRandomBeerUseCase: GetRandomBeerUseCase) : ViewModel() {
 
     val randomBeer = MutableLiveData<BeerSimpleViewModel>()
+
+    private val subscriptions = CompositeDisposable()
 
     fun updateRandomBeer() {
         getRandomBeerUseCase.execute()
@@ -18,7 +22,13 @@ class HomeFragmentViewModel(private val getRandomBeerUseCase: GetRandomBeerUseCa
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
                     randomBeer.value = it.toVM()
-                }.dispose()
+                }.also {
+                    subscriptions.add(it)
+                }
+    }
+
+    override fun onCleared() {
+        subscriptions.clear()
     }
 
 }

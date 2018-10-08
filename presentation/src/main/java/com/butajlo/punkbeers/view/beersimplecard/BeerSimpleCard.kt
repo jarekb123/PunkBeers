@@ -16,7 +16,7 @@ class BeerSimpleCard : CardView {
 
     init {
         val inflater = LayoutInflater.from(context)
-        binding = BeerSimpleCardBinding.inflate(inflater)
+        binding = BeerSimpleCardBinding.inflate(inflater, this, true)
     }
 
     fun setViewModel(viewModel: BeerSimpleViewModel) {

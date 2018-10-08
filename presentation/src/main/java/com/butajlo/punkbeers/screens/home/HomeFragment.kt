@@ -4,6 +4,7 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.view.View
 import com.butajlo.punkbeers.R
 import com.butajlo.punkbeers.base.BaseFragment
 import com.butajlo.punkbeers.view.beersimplecard.BeerSimpleViewModel
@@ -28,6 +29,7 @@ class HomeFragment : BaseFragment() {
 
     private fun updateRandomBeer(beer: BeerSimpleViewModel?) {
         beer_card_random.setViewModel(beer ?: return)
+        beer_card_random.visibility = View.VISIBLE
     }
 
 }

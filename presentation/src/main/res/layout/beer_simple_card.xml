@@ -9,7 +9,7 @@
             type="com.butajlo.punkbeers.view.beersimplecard.BeerSimpleViewModel"/>
     </data>
 
-    <android.support.v7.widget.CardView
+    <merge
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="8dp"
@@ -25,10 +25,11 @@
                 android:id="@+id/iv_beer"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:scaleType="fitXY"
+                android:scaleType="fitCenter"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:srcCompat="@tools:sample/avatars"
+                app:imageUrl="@{viewModel.imageUrl}"/>
 
             <TextView
                 android:id="@+id/tv_beer_name"
@@ -90,5 +91,5 @@
                     android:text="@{@string/beer_og_val(viewModel.og)}" />
             </LinearLayout>
         </android.support.constraint.ConstraintLayout>
-    </android.support.v7.widget.CardView>
+    </merge>
 </layout>
