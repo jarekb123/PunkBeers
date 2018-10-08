@@ -1,4 +1,4 @@
-package com.butajlo.punkbeers.screens.model
+package com.butajlo.punkbeers.view.beersimplecard
 
 data class BeerSimpleViewModel(
         val name: String,

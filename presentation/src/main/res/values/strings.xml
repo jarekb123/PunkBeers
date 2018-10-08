@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">PunkBeers</string>
+
+    <!-- Beer simple card view -->
+    <string name="beer_abv_val">%f ABV</string>
+    <string name="beer_ibu_val">%f IBU</string>
+    <string name="beer_og_val">%f OG</string>
+
 </resources>

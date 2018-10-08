@@ -11,8 +11,4 @@ class PunkRepositoryImpl @Inject constructor(private val punkDao: PunkDao) : Pun
 
     override fun getRandomBeer(): Observable<BeerEntity> = punkDao.getRandomBeer().map { it.toDomainModel() }
 
-    override fun searchByName(name: String) : List<BeerEntity> {
-        Thread.sleep(1000)
-        return listOf(BeerEntity(1, "Beer"))
-    }
 }

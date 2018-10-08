@@ -14,6 +14,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -21,7 +22,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    dataBinding.enabled = true
+    dataBinding {
+        enabled = true
+    }
 
 }
 
@@ -34,16 +37,19 @@ dependencies {
     implementation project(":domain")
     implementation project(":data")
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    def kotlinDep = rootProject.ext.kotlinDependencies
+    implementation kotlinDep.kotlin
 
-    def lifecycle_version = "1.1.1"
+    def presentationDep = rootProject.ext.presentationDependencies
+    implementation presentationDep.cardLayout
+    implementation presentationDep.constraintLayout
 
-    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+    implementation presentationDep.lifecycleAwareComponents
+    annotationProcessor presentationDep.lifecycleAwareCompiler
 
-    def supportDep = rootProject.ext.supportDependencies
-    implementation supportDep.cardLayout
-    implementation supportDep.constraintLayout
+    implementation presentationDep.picasso
 
+    kapt presentationDep.dataBindingCompiler
 
     def daggerDependencies = rootProject.ext.daggerDependencies
     implementation daggerDependencies.dagger

@@ -7,6 +7,6 @@ import io.reactivex.Observable
 
 class GetRandomBeerUseCase(private val punkRepository: PunkRepository) : UseCase<Unit, Observable<BeerEntity>> {
 
-    override fun execute(params: Unit): Observable<BeerEntity> = punkRepository.getRandomBeer()
+    override fun execute(params: Unit?): Observable<BeerEntity> = punkRepository.getRandomBeer()
 
 }
