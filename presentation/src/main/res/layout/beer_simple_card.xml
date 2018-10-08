@@ -25,11 +25,11 @@
                 android:id="@+id/iv_beer"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
+                android:src="@{viewModel.imageUrl}"
                 android:scaleType="fitCenter"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars"
-                app:imageUrl="@{viewModel.imageUrl}"/>
+                tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/tv_beer_name"

@@ -15,7 +15,7 @@ data class BeerSimpleViewModel(
     companion object {
 
         @JvmStatic
-        @BindingAdapter("app:imageUrl", requireAll = true)
+        @BindingAdapter("android:src", requireAll = true)
         fun loadImage(iv: ImageView, imageUrl: String?) {
             imageUrl ?: return
             Picasso.get()
