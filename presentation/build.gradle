@@ -60,6 +60,8 @@ dependencies {
     def rxDep = rootProject.ext.rxDependencies
     implementation rxDep.rxJava
     implementation rxDep.rxAndroid
+    implementation rxDep.rxKotlin
+
 
     def retrofitDep = rootProject.ext.retrofitDependencies
     implementation retrofitDep.retrofit

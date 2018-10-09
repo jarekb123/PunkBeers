@@ -4,6 +4,7 @@ ext {
     dagger = "2.16"
     rxJava = "2.2.2"
     rxAndroid = "2.1.0"
+    rxKotlin = "2.2.0"
     retrofit = "2.4.0"
     okHttp = "3.11.0"
     gson = "2.8.5"
@@ -41,7 +42,8 @@ ext {
 
     rxDependencies = [
             rxJava: "io.reactivex.rxjava2:rxjava:$rxJava",
-            rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroid"
+            rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroid",
+            rxKotlin: "io.reactivex.rxjava2:rxkotlin:$rxKotlin"
     ]
 
     supportDependencies = [

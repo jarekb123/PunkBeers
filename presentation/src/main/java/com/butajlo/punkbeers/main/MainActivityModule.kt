@@ -4,7 +4,7 @@ import com.butajlo.punkbeers.di.ViewModelModule
 import com.butajlo.punkbeers.repository.PunkRepository
 import com.butajlo.punkbeers.screens.home.HomeFragment
 import com.butajlo.punkbeers.screens.home.HomeFragmentModule
-import com.butajlo.punkbeers.usecase.GetRandomBeerUseCase
+import com.butajlo.punkbeers.executor.GetRandomBeerUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector

@@ -1,4 +1,4 @@
-package com.butajlo.punkbeers.usecase
+package com.butajlo.punkbeers.executor
 
 import com.butajlo.punkbeers.common.UseCase
 import com.butajlo.punkbeers.model.BeerEntity
