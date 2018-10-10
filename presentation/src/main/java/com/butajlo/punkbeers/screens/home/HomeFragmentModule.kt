@@ -1,7 +1,7 @@
 package com.butajlo.punkbeers.screens.home
 
 import android.arch.lifecycle.ViewModel
-import com.butajlo.punkbeers.di.ViewModelKey
+import com.butajlo.punkbeers.view.viewmodel.ViewModelKey
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

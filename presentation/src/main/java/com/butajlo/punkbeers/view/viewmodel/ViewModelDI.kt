@@ -1,15 +1,12 @@
-package com.butajlo.punkbeers.di
+package com.butajlo.punkbeers.view.viewmodel
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import com.butajlo.punkbeers.screens.home.HomeFragmentViewModel
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module
-import dagger.multibindings.IntoMap
 import javax.inject.Inject
 import javax.inject.Provider
-import javax.inject.Singleton
 import kotlin.reflect.KClass
 
 

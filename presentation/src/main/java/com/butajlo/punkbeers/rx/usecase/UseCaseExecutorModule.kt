@@ -1,4 +1,4 @@
-package com.butajlo.punkbeers.executor
+package com.butajlo.punkbeers.rx.usecase
 
 import com.butajlo.punkbeers.rx.SchedulersModule
 import dagger.Module

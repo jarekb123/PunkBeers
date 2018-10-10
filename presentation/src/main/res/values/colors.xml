@@ -3,4 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="iv_placeholder_details_general_info">#D8991B</color>
+    <color name="iv_placeholder_details_hops_info">#1B4613</color>
+
 </resources>

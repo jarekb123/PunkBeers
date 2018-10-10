@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.butajlo.punkbeers.view.beersimplecard.BeerSimpleViewModel"/>
+            type="com.butajlo.punkbeers.view.beersimplecard.BeerSimpleModel"/>
     </data>
 
     <merge

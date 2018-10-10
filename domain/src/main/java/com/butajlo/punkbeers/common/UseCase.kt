@@ -1,7 +1,7 @@
 package com.butajlo.punkbeers.common
 
-interface UseCase<Params, Result> {
+interface UseCase<Result> {
 
-    fun execute(params: Params? = null): Result
+    fun execute(): Result
 
 }

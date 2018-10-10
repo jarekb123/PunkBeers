@@ -1,6 +1,6 @@
 package com.butajlo.punkbeers
 
-import com.butajlo.punkbeers.di.DaggerAppComponent
+import com.butajlo.punkbeers.base.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 

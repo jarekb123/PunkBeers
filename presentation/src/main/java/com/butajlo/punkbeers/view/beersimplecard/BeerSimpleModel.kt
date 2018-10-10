@@ -4,7 +4,7 @@ import android.databinding.BindingAdapter
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
 
-data class BeerSimpleViewModel(
+data class BeerSimpleModel(
         val name: String,
         val tagLine: String,
         val imageUrl: String,

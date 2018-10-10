@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.View
 import com.butajlo.punkbeers.R
 import com.butajlo.punkbeers.base.BaseFragment
-import com.butajlo.punkbeers.view.beersimplecard.BeerSimpleViewModel
+import com.butajlo.punkbeers.view.beersimplecard.BeerSimpleModel
 import kotlinx.android.synthetic.main.screen_home.*
 import javax.inject.Inject
 
@@ -27,7 +27,7 @@ class HomeFragment : BaseFragment() {
         viewModel.updateRandomBeer()
     }
 
-    private fun updateRandomBeer(beer: BeerSimpleViewModel?) {
+    private fun updateRandomBeer(beer: BeerSimpleModel?) {
         beer_card_random.setViewModel(beer ?: return)
         beer_card_random.visibility = View.VISIBLE
     }

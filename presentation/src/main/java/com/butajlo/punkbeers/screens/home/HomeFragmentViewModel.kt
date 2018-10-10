@@ -2,10 +2,10 @@ package com.butajlo.punkbeers.screens.home
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import com.butajlo.punkbeers.executor.GetRandomBeerUseCase
-import com.butajlo.punkbeers.executor.UseCaseExecutor
-import com.butajlo.punkbeers.screens.model.toVM
-import com.butajlo.punkbeers.view.beersimplecard.BeerSimpleViewModel
+import com.butajlo.punkbeers.usecase.GetRandomBeerUseCase
+import com.butajlo.punkbeers.rx.usecase.UseCaseExecutor
+import com.butajlo.punkbeers.screens.toVM
+import com.butajlo.punkbeers.view.beersimplecard.BeerSimpleModel
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
@@ -13,7 +13,7 @@ class HomeFragmentViewModel @Inject constructor(private val getRandomBeerUseCase
                                                 private val executor: UseCaseExecutor)
     : ViewModel() {
 
-    val randomBeer = MutableLiveData<BeerSimpleViewModel>()
+    val randomBeer = MutableLiveData<BeerSimpleModel>()
 
     private val subscriptions = CompositeDisposable()
 

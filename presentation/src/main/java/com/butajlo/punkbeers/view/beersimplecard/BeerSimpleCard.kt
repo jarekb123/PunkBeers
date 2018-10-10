@@ -19,7 +19,7 @@ class BeerSimpleCard : CardView {
         binding = BeerSimpleCardBinding.inflate(inflater, this, true)
     }
 
-    fun setViewModel(viewModel: BeerSimpleViewModel) {
+    fun setViewModel(viewModel: BeerSimpleModel) {
         binding.viewModel = viewModel
     }
 

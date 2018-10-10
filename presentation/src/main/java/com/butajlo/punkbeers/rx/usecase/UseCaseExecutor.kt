@@ -1,8 +1,8 @@
-package com.butajlo.punkbeers.executor
+package com.butajlo.punkbeers.rx.usecase
 
 import com.butajlo.punkbeers.common.UseCase
-import io.reactivex.Observable
 import io.reactivex.Scheduler
+import io.reactivex.Single
 import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.subscribeBy
 import javax.inject.Singleton
@@ -11,23 +11,22 @@ import javax.inject.Singleton
 class UseCaseExecutor(private val ioScheduler: Scheduler,
                       private val uiScheduler: Scheduler) {
 
-    fun <Params, Result> async(useCase: UseCase<Params, Observable<Result>>, params: Params? = null)
-            : Builder<Params, Result> where Result : Any {
-        return Builder(useCase, params, ioScheduler, uiScheduler)
+    fun <Result> async(useCase: UseCase<Single<Result>>)
+            : Builder<Result> where Result : Any {
+        return Builder(useCase, ioScheduler, uiScheduler)
     }
 
-    class Builder<Params, Result>(
-            private val useCase: UseCase<Params, Observable<Result>>,
-            private val params: Params? = null,
+    class Builder<Result>(
+            private val useCase: UseCase<Single<Result>>,
             private val ioScheduler: Scheduler,
             private val uiScheduler: Scheduler) where Result : Any {
 
         fun execute(onSuccess: (Result) -> Unit, onError: (Throwable) -> Unit) : Disposable =
-            useCase.execute(params)
+            useCase.execute()
                     .subscribeOn(ioScheduler)
                     .observeOn(uiScheduler)
                     .subscribeBy(
-                            onNext = onSuccess,
+                            onSuccess = onSuccess,
                             onError = onError
                     )
 

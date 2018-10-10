@@ -1,9 +1,8 @@
-package com.butajlo.punkbeers.di
+package com.butajlo.punkbeers.base
 
 import com.butajlo.punkbeers.App
-import com.butajlo.punkbeers.executor.UseCaseExecutorModule
+import com.butajlo.punkbeers.rx.usecase.UseCaseExecutorModule
 import com.butajlo.punkbeers.network.DataModule
-import com.butajlo.punkbeers.rx.SchedulersModule
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule

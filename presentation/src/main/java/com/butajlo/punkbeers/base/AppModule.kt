@@ -1,4 +1,4 @@
-package com.butajlo.punkbeers.di
+package com.butajlo.punkbeers.base
 
 import com.butajlo.punkbeers.data.repository.PunkRepositoryImpl
 import com.butajlo.punkbeers.repository.PunkRepository
