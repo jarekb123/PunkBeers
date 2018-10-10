@@ -15,6 +15,9 @@ ext {
 
     kotlin_version = "1.2.71"
 
+    junit = "4.12"
+    mockito = "2.23.0"
+    mockitoKotlin = "2.0.0-RC3"
 
 
 
@@ -58,6 +61,13 @@ ext {
             lifecycleAwareCompiler: "android.arch.lifecycle:compiler:$lifecycle",
             dataBindingCompiler: "com.android.databinding:compiler:$dataBinding",
             picasso: "com.squareup.picasso:picasso:$picasso"
+    ]
+
+    testDependencies = [
+            junit: "junit:junit:$junit",
+            mockito: "org.mockito:mockito-core:$mockito",
+            mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlin",
+            gson: "com.google.code.gson:gson:$gson"
     ]
 
 }

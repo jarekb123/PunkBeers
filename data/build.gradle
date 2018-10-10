@@ -9,7 +9,7 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -44,5 +44,12 @@ dependencies {
     def rxDep = rootProject.ext.rxDependencies
     implementation rxDep.rxJava
     implementation rxDep.rxAndroid
+
+    // Test libs
+    def testDep = rootProject.ext.testDependencies
+    testImplementation testDep.junit
+    testImplementation testDep.mockito
+    testImplementation testDep.mockitoKotlin
+    testImplementation testDep.gson
 
 }
