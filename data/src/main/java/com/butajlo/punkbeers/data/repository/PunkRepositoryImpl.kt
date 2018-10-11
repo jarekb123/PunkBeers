@@ -6,6 +6,7 @@ import com.butajlo.punkbeers.model.BeerEntity
 import com.butajlo.punkbeers.repository.PunkRepository
 import io.reactivex.Maybe
 import io.reactivex.Single
+import org.jetbrains.annotations.TestOnly
 import javax.inject.Inject
 
 /**
@@ -49,5 +50,8 @@ class PunkRepositoryImpl @Inject constructor(private val punkDao: PunkDao) : Pun
                 }
                 .toMaybe()
     }
+
+    @TestOnly
+    fun clearCache() = cachedBeerEntities.clear()
 
 }

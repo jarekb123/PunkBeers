@@ -6,29 +6,48 @@ import com.butajlo.punkbeers.data.model.Beer
 import com.butajlo.punkbeers.data.test.TestUtils
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.verify
+import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Single
+import org.junit.Before
 import org.junit.Test
 
 class PunkRepositoryImplTest {
 
     private val beer = TestUtils.loadJson("mock/get_beer.json", Beer::class.java)
+    private val secondBeer = TestUtils.loadJson("mock/get_beer_2.json", Beer::class.java)
 
     private val punkDao = mock<PunkDao> {
-        on(it.getBeer(any())).thenReturn(Single.just(beer))
+        on(it.getBeer(1)).thenReturn(Single.just(beer))
         on(it.getRandomBeer()).thenReturn(Single.just(beer))
     }
 
     private val punkRepository = PunkRepositoryImpl(punkDao)
 
+    @Before
+    fun setUp() {
+        punkRepository.clearCache()
+    }
+
     @Test
     fun getRandomBeer_Success() {
-        punkRepository.getRandomBeer().test().assertValue { it.name == "Punk IPA 2007 - 2010" }
+        punkRepository.getRandomBeer().test().assertValue(beer.toDomainModel())
     }
 
     @Test
     fun getBeer_NotCached() {
         //TODO: Finish test
-        punkRepository.getBeer(any()).test().assertValue(beer.toDomainModel())
+        punkRepository.getBeer(1).test().assertValue(beer.toDomainModel())
+        verify(punkDao).getBeer(1)
+    }
+
+    @Test
+    fun getBeer_Cached() {
+        punkRepository.getBeer(1).subscribe() // 1. fetch sth from DAO
+        whenever(punkDao.getBeer(1)).thenReturn(Single.just(secondBeer)) // 2. DAO now return different beer
+
+        punkRepository.getBeer(1).test().assertValue { it.name == beer.name } // but there is beer cached, so it should return the first one
+
     }
 
 
