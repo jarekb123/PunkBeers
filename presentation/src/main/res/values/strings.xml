@@ -6,4 +6,7 @@
     <string name="beer_ibu_val">%.2f IBU</string>
     <string name="beer_og_val">%.2f OG</string>
 
+    <!-- Details screen -->
+    <string name="details_loading_data_error">Error loading details data</string>
+
 </resources>

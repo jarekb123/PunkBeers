@@ -17,9 +17,12 @@ class PunkRepositoryImplTest {
     private val beer = TestUtils.loadJson("mock/get_beer.json", Beer::class.java)
     private val secondBeer = TestUtils.loadJson("mock/get_beer_2.json", Beer::class.java)
 
+    private val beerList = listOf(beer, secondBeer)
+
     private val punkDao = mock<PunkDao> {
         on(it.getBeer(1)).thenReturn(Single.just(beer))
         on(it.getRandomBeer()).thenReturn(Single.just(beer))
+        on(it.findBeers("name", "yeast", "hops")).thenReturn(Single.just(listOf(beer, secondBeer)))
     }
 
     private val punkRepository = PunkRepositoryImpl(punkDao)
@@ -30,13 +33,21 @@ class PunkRepositoryImplTest {
     }
 
     @Test
+    fun findBeers_ReturnListWithTwoBeers() {
+        punkRepository.findBeers("name", "yeast", "hops")
+                .test()
+                .assertValue(beerList.map { it.toDomainModel() })
+    }
+
+    @Test
     fun getRandomBeer_Success() {
-        punkRepository.getRandomBeer().test().assertValue(beer.toDomainModel())
+        punkRepository.getRandomBeer()
+                .test()
+                .assertValue(beer.toDomainModel())
     }
 
     @Test
     fun getBeer_NotCached() {
-        //TODO: Finish test
         punkRepository.getBeer(1).test().assertValue(beer.toDomainModel())
         verify(punkDao).getBeer(1)
     }
@@ -46,8 +57,9 @@ class PunkRepositoryImplTest {
         punkRepository.getBeer(1).subscribe() // 1. fetch sth from DAO
         whenever(punkDao.getBeer(1)).thenReturn(Single.just(secondBeer)) // 2. DAO now return different beer
 
-        punkRepository.getBeer(1).test().assertValue { it.name == beer.name } // but there is beer cached, so it should return the first one
-
+        punkRepository.getBeer(1)
+                .test()
+                .assertValue { it.name == beer.name } // but there is beer cached, so it should return the first one
     }
 
 

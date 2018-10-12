@@ -15,12 +15,4 @@ abstract class MainActivityModule {
     @ContributesAndroidInjector(modules = [ViewModelModule::class, HomeFragmentModule::class])
     abstract fun bindHomeFragment(): HomeFragment
 
-    @Module
-    companion object {
-        @JvmStatic
-        @Provides
-        fun provideGetRandomBeerUseCase(punkRepository: PunkRepository)
-                = GetRandomBeerUseCase(punkRepository)
-    }
-
 }

@@ -14,7 +14,6 @@ import javax.inject.Inject
  * This repo stores cache, which contains previous fetched BeerEntities.
  */
 class PunkRepositoryImpl @Inject constructor(private val punkDao: PunkDao) : PunkRepository {
-
     private val cachedBeerEntities = mutableListOf<BeerEntity>()
 
     /**
@@ -28,9 +27,19 @@ class PunkRepositoryImpl @Inject constructor(private val punkDao: PunkDao) : Pun
      * @param id BeerEntity's id
      * @return Cached BeerEntity if exists, otherwise returns BeerEntity fetched from PunkDao
      */
-    override fun getBeer(id: Long): Single<BeerEntity>
-            = Maybe.concat(getCachedBeerEntity(id), getBeerEntityFromDao(id))
-                .firstOrError()
+    override fun getBeer(id: Long): Single<BeerEntity> = Maybe.concat(getCachedBeerEntity(id), getBeerEntityFromDao(id))
+            .firstOrError()
+
+    /**
+     * Find beers with provided name, yeast or hops
+     * @return Found beers
+     */
+    override fun findBeers(name: String?, yeast: String?, hops: String?): Single<List<BeerEntity>> {
+        return punkDao.findBeers(name, yeast, hops)
+                .map {
+                    it.map { it.toDomainModel() }
+                }
+    }
 
     private fun getCachedBeerEntity(id: Long): Maybe<BeerEntity> {
         return Maybe.create { e ->

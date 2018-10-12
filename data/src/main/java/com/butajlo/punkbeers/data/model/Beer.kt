@@ -10,6 +10,6 @@ data class Beer(
         val tagline: String,
         val abv: Float,
         val ibu: Float,
-        @SerializedName("target_og") val targetOg: Float
-
+        @SerializedName("target_og") val targetOg: Float,
+        @SerializedName("first_brewed") val firstBrewed: String
 )

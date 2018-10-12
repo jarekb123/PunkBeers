@@ -13,4 +13,13 @@ class PunkDaoImpl @Inject constructor(private val punkService: PunkService) : Pu
 
     override fun getBeer(id: Long): Single<Beer> = punkService.getBeer(id).map { it[0] }
 
+    override fun findBeers(name: String?, yeast: String?, hops: String?) : Single<List<Beer>> {
+        val searchParams = HashMap<String, String>()
+
+        name?.also { searchParams["name"] = it }
+        yeast?.also { searchParams["yeast"] = it }
+        hops?.also { searchParams["hops"] = it }
+
+        return punkService.findBeers(searchParams)
+    }
 }

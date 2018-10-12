@@ -8,5 +8,6 @@ data class BeerEntity(
         val tagLine: String,
         val abv: Float,
         val ibu: Float,
-        val targetOg: Float
+        val targetOg: Float,
+        val firstBrewed: String
 )

@@ -1,6 +1,6 @@
 package com.butajlo.punkbeers.screens.details
 
-data class DetailsModel(
+data class BeerDetailsModel(
         val name: String,
         val tagLine: String,
         val description: String,
