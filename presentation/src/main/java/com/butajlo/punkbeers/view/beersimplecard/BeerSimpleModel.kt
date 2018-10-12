@@ -5,6 +5,7 @@ import android.widget.ImageView
 import com.squareup.picasso.Picasso
 
 data class BeerSimpleModel(
+        val id: Long,
         val name: String,
         val tagLine: String,
         val imageUrl: String,

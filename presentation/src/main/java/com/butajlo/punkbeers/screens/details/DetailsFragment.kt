@@ -3,7 +3,6 @@ package com.butajlo.punkbeers.screens.details
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.view.View
 import com.butajlo.punkbeers.R
@@ -23,16 +22,19 @@ class DetailsFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProviders.of(this, viewModelFactory)[DetailsViewModel::class.java]
-        viewModel.getDetails(arguments.getLong(ARGUMENT_BEER_ID))
         val binding = ScreenDetailsBinding.inflate(layoutInflater)
-        viewModel.detailsLiveData.observe(this, Observer { binding.model })
+        viewModel.detailsLiveData.observe(this, Observer { binding.model = it })
+
+        viewModel.getDetails(arguments.getLong(ARGUMENT_BEER_ID))
     }
 
     companion object {
         private const val ARGUMENT_BEER_ID = "ARGUMENT_BEER_ID"
 
         fun create(beerId: Long) = DetailsFragment().apply {
-            arguments.putLong(ARGUMENT_BEER_ID, beerId)
+            arguments = Bundle().apply {
+                putLong(ARGUMENT_BEER_ID, beerId)
+            }
         }
     }
 

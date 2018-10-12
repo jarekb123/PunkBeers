@@ -30,6 +30,7 @@ class HomeFragment : BaseFragment() {
     private fun updateRandomBeer(beer: BeerSimpleModel?) {
         beer_card_random.setViewModel(beer ?: return)
         beer_card_random.visibility = View.VISIBLE
+        beer_card_random.setOnClickListener { viewModel.goToBeerDetails(beer.id) }
     }
 
 }

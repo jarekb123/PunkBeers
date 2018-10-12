@@ -5,6 +5,6 @@ import com.butajlo.punkbeers.screens.details.BeerDetailsModel
 import com.butajlo.punkbeers.view.beersimplecard.BeerSimpleModel
 
 
-fun BeerEntity.toVM() = BeerSimpleModel(name, tagLine, imageUrl, abv, ibu, targetOg)
+fun BeerEntity.toVM() = BeerSimpleModel(id, name, tagLine, imageUrl, abv, ibu, targetOg)
 
 fun BeerEntity.toDetailsVM() = BeerDetailsModel(name, tagLine, description, firstBrewed)
