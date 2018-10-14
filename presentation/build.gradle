@@ -7,11 +7,11 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 27
     defaultConfig {
         applicationId "com.butajlo.punkbeers"
         minSdkVersion 24
-        targetSdkVersion 28
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -36,11 +36,14 @@ dependencies {
 
     implementation project(":domain")
     implementation project(":data")
+    implementation project(":network")
 
     def kotlinDep = rootProject.ext.kotlinDependencies
     implementation kotlinDep.kotlin
 
     def presentationDep = rootProject.ext.presentationDependencies
+    implementation presentationDep.appCompat
+    implementation presentationDep.recyclerView
     implementation presentationDep.cardLayout
     implementation presentationDep.constraintLayout
 
@@ -61,16 +64,6 @@ dependencies {
     implementation rxDep.rxJava
     implementation rxDep.rxAndroid
     implementation rxDep.rxKotlin
-
-
-    def retrofitDep = rootProject.ext.retrofitDependencies
-    implementation retrofitDep.retrofit
-    implementation retrofitDep.retrofitGsonConverter
-    implementation retrofitDep.retrofitRxAdapter
-
-    def okHttpDep = rootProject.ext.okHttpDependencies
-    implementation okHttpDep.loggingInterceptor
-    implementation okHttpDep.okHttp
 
     testImplementation 'junit:junit:4.12'
 }

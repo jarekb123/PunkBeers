@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="hopsData"
+            type="com.butajlo.punkbeers.screens.details.HopsModel"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+
+        <ImageView
+            android:id="@+id/iv_hops_item"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_hops_round"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_hops_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{hopsData.name}"
+            android:textColor="@color/tv_label"
+            app:layout_constraintStart_toEndOf="@id/iv_hops_item"
+            app:layout_constraintTop_toTopOf="@id/iv_hops_item" />
+
+        <TextView
+            android:id="@+id/tv_amount_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/hops_amount"
+            android:textColor="@color/tv_label"
+            app:layout_constraintStart_toEndOf="@id/iv_hops_item"
+            app:layout_constraintTop_toBottomOf="@id/tv_hops_name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="@{hopsData.amount + ' ' + hopsData.amountUnit}"
+            app:layout_constraintStart_toEndOf="@id/tv_amount_label"
+            app:layout_constraintTop_toTopOf="@id/tv_amount_label" />
+
+        <TextView
+            android:id="@+id/tv_add_time_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hops_add_time"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/tv_label"
+            app:layout_constraintStart_toEndOf="@id/iv_hops_item"
+            app:layout_constraintTop_toBottomOf="@id/tv_amount_label"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{hopsData.addTime}"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toEndOf="@id/tv_add_time_label"
+            app:layout_constraintTop_toTopOf="@id/tv_add_time_label"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

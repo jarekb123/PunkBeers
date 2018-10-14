@@ -8,5 +8,9 @@
 
     <!-- Details screen -->
     <string name="details_loading_data_error">Error loading details data</string>
+    <string name="first_brewed">First brewed: </string>
+    <string name="hops">Hops</string>
+    <string name="hops_amount">Amount:</string>
+    <string name="hops_add_time">Adding time:</string>
 
 </resources>

@@ -1,6 +1,6 @@
 ext {
-    support = "28.0.0"
-    constraintLayout = "1.1.3"
+    support = "27.1.1"
+    constraintLayout = "1.1.2"
     dagger = "2.16"
     rxJava = "2.2.2"
     rxAndroid = "2.1.0"
@@ -49,18 +49,26 @@ ext {
             rxKotlin: "io.reactivex.rxjava2:rxkotlin:$rxKotlin"
     ]
 
-    supportDependencies = [
-            cardLayout: "com.android.support:cardview-v7:$support",
-            constraintLayout: "com.android.support.constraint:constraint-layout:$constraintLayout"
-    ]
-
     presentationDependencies = [
+            appCompat: "com.android.support:appcompat-v7:$support",
             cardLayout: "com.android.support:cardview-v7:$support",
             constraintLayout: "com.android.support.constraint:constraint-layout:$constraintLayout",
+            recyclerView: "com.android.support:recyclerview-v7:$support",
             lifecycleAwareComponents: "android.arch.lifecycle:extensions:$lifecycle",
             lifecycleAwareCompiler: "android.arch.lifecycle:compiler:$lifecycle",
             dataBindingCompiler: "com.android.databinding:compiler:$dataBinding",
             picasso: "com.squareup.picasso:picasso:$picasso"
+    ]
+
+    networkDependencies = [
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
+            dagger: "com.google.dagger:dagger:$dagger",
+            daggerCompiler: "com.google.dagger:dagger-compiler:$dagger",
+            retrofit: "com.squareup.retrofit2:retrofit:$retrofit",
+            retrofitGsonConverter: "com.squareup.retrofit2:converter-gson:$retrofit",
+            retrofitRxAdapter: "com.squareup.retrofit2:adapter-rxjava2:$retrofit",
+            okHttp: "com.squareup.okhttp3:okhttp:$okHttp",
+            loggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$okHttp"
     ]
 
     testDependencies = [

@@ -10,11 +10,14 @@ import com.butajlo.punkbeers.usecase.GetBeerUseCase
 import javax.inject.Inject
 
 class DetailsViewModel @Inject constructor(private val getBeerUseCase: GetBeerUseCase,
-                                           private val executor: UseCaseExecutor)
+                                           private val executor: UseCaseExecutor,
+                                           private val hopsAdapter: HopsAdapter)
     : ViewModel() {
 
-    val loadingLiveData = MutableLiveData<Boolean>()
     val detailsLiveData = MutableLiveData<BeerDetailsModel>()
+    val hopsLiveData = MutableLiveData<List<HopsModel>>()
+
+    val loadingLiveData = MutableLiveData<Boolean>()
     val errorResLiveData = MutableLiveData<Int>()
 
     fun getDetails(beerId: Long) {
@@ -28,7 +31,9 @@ class DetailsViewModel @Inject constructor(private val getBeerUseCase: GetBeerUs
     private fun updateDetails(detailsModel: BeerDetailsModel) {
         detailsLiveData.value = detailsModel
         loadingLiveData.value = false
+        hopsAdapter.addAll(detailsModel.hops)
     }
+
 
     private fun updateError(error: Throwable) {
         Log.e(javaClass.simpleName, "Error during loading Beer Details", error)

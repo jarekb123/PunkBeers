@@ -2,6 +2,7 @@ package com.butajlo.punkbeers.screens.home
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import android.util.Log
 import com.butajlo.punkbeers.navigator.Navigator
 import com.butajlo.punkbeers.usecase.GetRandomBeerUseCase
 import com.butajlo.punkbeers.rx.usecase.UseCaseExecutor
@@ -25,7 +26,9 @@ class HomeFragmentViewModel @Inject constructor(private val getRandomBeerUseCase
 
     fun updateRandomBeer() {
         executor.async(getRandomBeerUseCase)
-                .execute(onSuccess = { randomBeer.value = it.toVM() }, onError = {})
+                .execute(onSuccess = { randomBeer.value = it.toVM() }, onError = {
+                    Log.e(javaClass.simpleName, "updateRandomBeer error", it)
+                })
     }
 
     fun goToBeerDetails(beerId: Long) {

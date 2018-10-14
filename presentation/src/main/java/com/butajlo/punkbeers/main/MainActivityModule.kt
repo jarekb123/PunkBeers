@@ -1,5 +1,6 @@
 package com.butajlo.punkbeers.main
 
+import com.butajlo.punkbeers.di.FragmentScope
 import com.butajlo.punkbeers.view.viewmodel.ViewModelModule
 import com.butajlo.punkbeers.repository.PunkRepository
 import com.butajlo.punkbeers.screens.details.DetailsFragment
@@ -14,9 +15,11 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class MainActivityModule {
 
+    @FragmentScope
     @ContributesAndroidInjector(modules = [ViewModelModule::class, HomeFragmentModule::class])
     abstract fun bindHomeFragment(): HomeFragment
 
+    @FragmentScope
     @ContributesAndroidInjector(modules = [ViewModelModule::class, DetailsModule::class])
     abstract fun bindDetailsFragment(): DetailsFragment
 

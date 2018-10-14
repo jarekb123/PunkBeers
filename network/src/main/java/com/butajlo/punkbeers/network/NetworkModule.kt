@@ -1,7 +1,8 @@
 package com.butajlo.punkbeers.network
 
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
+import com.butajlo.punkbeers.data.dao.PunkDao
+import com.butajlo.punkbeers.data.dao.PunkDaoImpl
+import com.butajlo.punkbeers.data.service.PunkService
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -13,13 +14,10 @@ import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
-class NetworkModule {
+object NetworkModule {
 
-    @Singleton
-    @Provides
-    fun provideGson(): Gson = GsonBuilder().create()
-
-    @Singleton
+    @NetworkScope
+    @JvmStatic
     @Provides
     fun provideOkHttpClient() : OkHttpClient {
         val loggingInterceptor = HttpLoggingInterceptor().apply {
@@ -30,7 +28,8 @@ class NetworkModule {
                 .build()
     }
 
-    @Singleton
+    @NetworkScope
+    @JvmStatic
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient, @Named("base_url") baseUrl: String): Retrofit =
             Retrofit.Builder()
@@ -39,5 +38,23 @@ class NetworkModule {
                     .client(okHttpClient)
                     .baseUrl(baseUrl)
                     .build()
+
+    @NetworkScope
+    @JvmStatic
+    @Provides
+    @Named("base_url")
+    fun provideApiUrl() = "https://api.punkapi.com/v2/"
+
+    @NetworkScope
+    @JvmStatic
+    @Provides
+    fun providePunkService(retrofit: Retrofit): PunkService
+            = retrofit.create(PunkService::class.java)
+
+    @NetworkScope
+    @JvmStatic
+    @Provides
+    fun providePunkDao(punkService: PunkService): PunkDao = PunkDaoImpl(punkService)
+
 
 }

@@ -18,9 +18,16 @@ class PunkRepositoryImpl @Inject constructor(private val punkDao: PunkDao) : Pun
 
     /**
      * Get random BeerEntity.
-     * The fetched object is NOT cached.
+     * The fetched object is cached (it may be used in the future).
      */
-    override fun getRandomBeer(): Single<BeerEntity> = punkDao.getRandomBeer().map { it.toDomainModel() }
+    override fun getRandomBeer(): Single<BeerEntity> = punkDao.getRandomBeer()
+            .map { it.toDomainModel() }
+            .doOnSuccess {
+                cachedBeerEntities.removeIf { fetchedEntity ->
+                    cachedBeerEntities.any { it.id == fetchedEntity.id }
+                }
+                cachedBeerEntities.add(it)
+            }
 
     /**
      * Get BeerEntity with provided id.

@@ -2,13 +2,14 @@ package com.butajlo.punkbeers.rx.usecase
 
 import com.butajlo.punkbeers.common.ParametrizedUseCase
 import com.butajlo.punkbeers.common.UseCase
+import com.butajlo.punkbeers.di.AppScope
 import io.reactivex.Scheduler
 import io.reactivex.Single
 import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.subscribeBy
 import javax.inject.Singleton
 
-@Singleton
+@AppScope
 class UseCaseExecutor(private val ioScheduler: Scheduler,
                       private val uiScheduler: Scheduler) {
 

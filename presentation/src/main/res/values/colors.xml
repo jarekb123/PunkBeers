@@ -7,4 +7,6 @@
     <color name="iv_placeholder_details_general_info">#D8991B</color>
     <color name="iv_placeholder_details_hops_info">#1B4613</color>
 
+    <color name="tv_label">#000000</color>
+
 </resources>

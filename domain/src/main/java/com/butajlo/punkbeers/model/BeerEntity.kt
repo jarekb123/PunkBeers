@@ -9,5 +9,6 @@ data class BeerEntity(
         val abv: Float,
         val ibu: Float,
         val targetOg: Float,
-        val firstBrewed: String
+        val firstBrewed: String,
+        val hops: List<HopsEntity>
 )
