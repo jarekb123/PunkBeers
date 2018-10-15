@@ -20,6 +20,10 @@ class HomeFragmentViewModel @Inject constructor(private val getRandomBeerUseCase
 
     private val subscriptions = CompositeDisposable()
 
+    init {
+        updateRandomBeer()
+    }
+
     override fun onCleared() {
         subscriptions.clear()
     }

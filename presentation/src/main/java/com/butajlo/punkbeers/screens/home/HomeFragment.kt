@@ -24,7 +24,6 @@ class HomeFragment : BaseFragment() {
 
         viewModel = ViewModelProviders.of(this, viewModelFactory)[HomeFragmentViewModel::class.java]
         viewModel.randomBeer.observe(this, Observer(::updateRandomBeer))
-        viewModel.updateRandomBeer()
     }
 
     private fun updateRandomBeer(beer: BeerSimpleModel?) {

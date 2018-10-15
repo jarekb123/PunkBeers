@@ -11,6 +11,6 @@ class MainActivity : BaseActivity() {
 
     override fun layoutRes(): Int = R.layout.activity_main
 
-    override fun initFragment(): Fragment = HomeFragment()
+    override fun initFragment() = HomeFragment()
 
 }
