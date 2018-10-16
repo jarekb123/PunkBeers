@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.annotation.IdRes
 import android.support.annotation.LayoutRes
 import android.support.v4.app.Fragment
+import android.util.Log
 import com.butajlo.punkbeers.lifecycle.ActivityLifecycleTask
 import com.butajlo.punkbeers.navigator.Navigator
 import dagger.android.support.DaggerAppCompatActivity
@@ -22,8 +23,14 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
         setContentView(layoutRes())
         lifecycleTasks.forEach { it.onCreate(this) }
         if(savedInstanceState == null) {
+            fragmentManager.executePendingTransactions()
             navigator.init(initFragment())
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        Log.d(javaClass.simpleName, "onSaveInstanceState")
+        super.onSaveInstanceState(outState)
     }
 
     @LayoutRes
