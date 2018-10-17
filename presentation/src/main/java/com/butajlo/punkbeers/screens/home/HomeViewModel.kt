@@ -1,19 +1,19 @@
 package com.butajlo.punkbeers.screens.home
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.butajlo.punkbeers.navigator.Navigator
-import com.butajlo.punkbeers.usecase.GetRandomBeerUseCase
 import com.butajlo.punkbeers.rx.usecase.UseCaseExecutor
 import com.butajlo.punkbeers.screens.toVM
+import com.butajlo.punkbeers.usecase.GetRandomBeerUseCase
 import com.butajlo.punkbeers.view.beersimplecard.BeerSimpleModel
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
-class HomeFragmentViewModel @Inject constructor(private val getRandomBeerUseCase: GetRandomBeerUseCase,
-                                                private val executor: UseCaseExecutor,
-                                                private val navigator: Navigator)
+class HomeViewModel @Inject constructor(private val getRandomBeerUseCase: GetRandomBeerUseCase,
+                                        private val executor: UseCaseExecutor,
+                                        private val navigator: Navigator)
     : ViewModel() {
 
     val randomBeer = MutableLiveData<BeerSimpleModel>()

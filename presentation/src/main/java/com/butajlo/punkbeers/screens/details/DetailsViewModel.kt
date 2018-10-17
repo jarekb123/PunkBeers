@@ -1,8 +1,8 @@
 package com.butajlo.punkbeers.screens.details
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.butajlo.punkbeers.R
 import com.butajlo.punkbeers.rx.usecase.UseCaseExecutor
 import com.butajlo.punkbeers.screens.toDetailsVM
