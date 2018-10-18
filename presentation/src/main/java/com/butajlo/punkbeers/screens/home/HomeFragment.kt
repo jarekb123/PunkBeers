@@ -19,8 +19,8 @@ class HomeFragment : BaseFragment() {
 
     private lateinit var viewModel: HomeFragmentViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProviders.of(this, viewModelFactory)[HomeFragmentViewModel::class.java]
         viewModel.randomBeer.observe(this, Observer(::updateRandomBeer))
