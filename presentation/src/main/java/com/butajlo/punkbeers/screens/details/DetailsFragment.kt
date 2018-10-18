@@ -32,8 +32,8 @@ class DetailsFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel = ViewModelProviders.of(this, viewModelFactory)[DetailsViewModel::class.java]
-        initViewModelObservers()
         initHopsRecyclerView()
+        initViewModelObservers()
 
         viewModel.getDetails(arguments?.getLong(ARGUMENT_BEER_ID) ?: return)
     }
