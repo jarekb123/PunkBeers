@@ -69,6 +69,10 @@ ext {
             picasso: "com.squareup.picasso:picasso:$picasso"
     ]
 
+    debugPresentationDependencies = [
+            drawerLayout: "androidx.drawerlayout:drawerlayout:1.0.0"
+    ]
+
     networkDependencies = [
             kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
             dagger: "com.google.dagger:dagger:$dagger",

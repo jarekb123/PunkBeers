@@ -72,6 +72,10 @@ dependencies {
     implementation rxDep.rxKotlin
 
     testImplementation 'junit:junit:4.12'
+
+    // DEBUG
+    def debugDep = rootProject.ext.debugPresentationDependencies
+    debugImplementation debugDep.drawerLayout
 }
 repositories {
     mavenCentral()
