@@ -1,4 +1,4 @@
-package com.butajlo.daggerandroidx
+package com.butajlo.daggerx
 
 import android.util.Log
 import android.util.Log.DEBUG

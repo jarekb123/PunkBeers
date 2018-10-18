@@ -10,7 +10,7 @@ ext {
     navigation = "1.0.0-alpha06"
     androidKtx = "1.0.0"
 
-    dagger = "2.17"
+    dagger = "2.16"
     rxJava = "2.2.2"
     rxAndroid = "2.1.0"
     rxKotlin = "2.2.0"

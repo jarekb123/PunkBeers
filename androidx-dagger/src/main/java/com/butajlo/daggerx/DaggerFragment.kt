@@ -1,4 +1,4 @@
-package com.butajlo.daggerandroidx
+package com.butajlo.daggerx
 
 import android.content.Context
 import androidx.fragment.app.Fragment

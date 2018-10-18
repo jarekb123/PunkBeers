@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.navigation.findNavController
-import com.butajlo.punkbeers.daggerx.DaggerAppCompatActivity
+import com.butajlo.daggerx.DaggerAppCompatActivity
 import com.butajlo.punkbeers.lifecycle.ActivityLifecycleTask
 import com.butajlo.punkbeers.navigator.Navigator
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.butajlo.daggerandroidx
+package com.butajlo.daggerx
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

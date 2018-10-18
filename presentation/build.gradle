@@ -37,6 +37,7 @@ dependencies {
     implementation project(":domain")
     implementation project(":data")
     implementation project(":network")
+    implementation project(':androidx-dagger')
 
     def kotlinDep = rootProject.ext.kotlinDependencies
     implementation kotlinDep.kotlin

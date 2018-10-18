@@ -4,8 +4,6 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 28
 
-
-
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 28
@@ -26,19 +24,17 @@ android {
 }
 
 ext {
-    daggerVersion = "2.17"
-    appCompatXVersion = "1.0.0"
+    daggerVersion = "2.16"
+    appCompatVersion = "1.0.0"
     kotlinVersion = "1.2.71"
 }
 
 dependencies {
-    implementation "androidx.appcompat:appcompat:$appCompatXVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
 
     implementation "com.google.dagger:dagger:$daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 
-}
-repositories {
-    mavenCentral()
 }

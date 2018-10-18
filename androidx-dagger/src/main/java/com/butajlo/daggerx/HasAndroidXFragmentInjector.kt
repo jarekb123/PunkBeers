@@ -1,4 +1,4 @@
-package com.butajlo.daggerandroidx
+package com.butajlo.daggerx
 
 import androidx.fragment.app.Fragment
 import dagger.android.AndroidInjector

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import com.butajlo.punkbeers.daggerx.DaggerFragment
+import com.butajlo.daggerx.DaggerFragment
 
 abstract class BaseFragment : DaggerFragment() {
 
