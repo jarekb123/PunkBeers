@@ -1,9 +1,9 @@
 package com.butajlo.punkbeers.view.beersimplecard
 
 import android.content.Context
-import android.support.v7.widget.CardView
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import androidx.cardview.widget.CardView
 import com.butajlo.punkbeers.databinding.BeerSimpleCardBinding
 
 class BeerSimpleCard : CardView {

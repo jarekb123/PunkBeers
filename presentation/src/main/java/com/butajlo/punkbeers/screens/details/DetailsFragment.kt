@@ -1,14 +1,14 @@
 package com.butajlo.punkbeers.screens.details
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.butajlo.punkbeers.R
 import com.butajlo.punkbeers.base.BaseFragment
 import com.butajlo.punkbeers.databinding.ScreenDetailsBinding
@@ -55,7 +55,7 @@ class DetailsFragment : BaseFragment() {
     }
 
     companion object {
-        private const val ARGUMENT_BEER_ID = "ARGUMENT_BEER_ID"
+        const val ARGUMENT_BEER_ID = "ARGUMENT_BEER_ID"
 
         fun create(beerId: Long) = DetailsFragment().apply {
             arguments = Bundle().apply {

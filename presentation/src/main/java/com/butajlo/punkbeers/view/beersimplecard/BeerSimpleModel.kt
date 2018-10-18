@@ -1,7 +1,7 @@
 package com.butajlo.punkbeers.view.beersimplecard
 
-import android.databinding.BindingAdapter
 import android.widget.ImageView
+import androidx.databinding.BindingAdapter
 import com.squareup.picasso.Picasso
 
 data class BeerSimpleModel(

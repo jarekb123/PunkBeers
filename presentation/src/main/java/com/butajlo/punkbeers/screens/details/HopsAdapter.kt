@@ -1,9 +1,9 @@
 package com.butajlo.punkbeers.screens.details
 
-import android.databinding.DataBindingUtil
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.RecyclerView
 import com.butajlo.punkbeers.R
 import com.butajlo.punkbeers.databinding.ItemGeneralHopsBinding
 import com.butajlo.punkbeers.di.FragmentScope

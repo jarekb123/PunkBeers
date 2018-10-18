@@ -1,13 +1,13 @@
 package com.butajlo.punkbeers.base
 
 import android.os.Bundle
-import android.support.annotation.IdRes
-import android.support.annotation.LayoutRes
-import android.support.v4.app.Fragment
 import android.util.Log
+import androidx.annotation.IdRes
+import androidx.annotation.LayoutRes
+import androidx.navigation.findNavController
+import com.butajlo.daggerx.DaggerAppCompatActivity
 import com.butajlo.punkbeers.lifecycle.ActivityLifecycleTask
 import com.butajlo.punkbeers.navigator.Navigator
-import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 abstract class BaseActivity : DaggerAppCompatActivity() {
@@ -18,21 +18,6 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
     @JvmSuppressWildcards
     lateinit var lifecycleTasks: Set<ActivityLifecycleTask>
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(layoutRes())
-        lifecycleTasks.forEach { it.onCreate(this) }
-        if(savedInstanceState == null) {
-            fragmentManager.executePendingTransactions()
-            navigator.init(initFragment())
-        }
-    }
-
-    override fun onSaveInstanceState(outState: Bundle?) {
-        Log.d(javaClass.simpleName, "onSaveInstanceState")
-        super.onSaveInstanceState(outState)
-    }
-
     @LayoutRes
     abstract fun layoutRes(): Int
 
@@ -41,4 +26,21 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
     @IdRes
     abstract fun fragmentContainerRes(): Int
 
+    @IdRes
+    abstract fun navControllerRes(): Int
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(layoutRes())
+        lifecycleTasks.forEach { it.onCreate(this) }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        Log.d(javaClass.simpleName, "onSaveInstanceState")
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onSupportNavigateUp() = findNavController(navControllerRes()).navigateUp()
+
+    fun getNavController() = findNavController(navControllerRes())
 }
