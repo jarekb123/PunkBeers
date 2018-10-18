@@ -1,10 +1,10 @@
 package com.butajlo.punkbeers.screens.home
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.butajlo.punkbeers.R
 import com.butajlo.punkbeers.base.BaseFragment
 import com.butajlo.punkbeers.view.beersimplecard.BeerSimpleModel
@@ -17,12 +17,12 @@ class HomeFragment : BaseFragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private lateinit var viewModel: HomeFragmentViewModel
+    private lateinit var viewModel: HomeViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProviders.of(this, viewModelFactory)[HomeFragmentViewModel::class.java]
+        viewModel = ViewModelProviders.of(this, viewModelFactory)[HomeViewModel::class.java]
         viewModel.randomBeer.observe(this, Observer(::updateRandomBeer))
     }
 

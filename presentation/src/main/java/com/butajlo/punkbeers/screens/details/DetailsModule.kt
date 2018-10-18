@@ -1,6 +1,6 @@
 package com.butajlo.punkbeers.screens.details
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import com.butajlo.punkbeers.repository.PunkRepository
 import com.butajlo.punkbeers.usecase.GetBeerUseCase
 import com.butajlo.punkbeers.view.viewmodel.ViewModelKey

@@ -1,1 +1,1 @@
-include ':presentation', ':domain', ':data', ':network'
+include ':presentation', ':domain', ':data', ':network', ':androidx-dagger'

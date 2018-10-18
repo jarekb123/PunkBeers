@@ -1,6 +1,6 @@
 package com.butajlo.punkbeers.screens.home
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import com.butajlo.punkbeers.repository.PunkRepository
 import com.butajlo.punkbeers.usecase.GetRandomBeerUseCase
 import com.butajlo.punkbeers.view.viewmodel.ViewModelKey
@@ -10,12 +10,12 @@ import dagger.Provides
 import dagger.multibindings.IntoMap
 
 @Module
-abstract class HomeFragmentModule {
+abstract class HomeModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(HomeFragmentViewModel::class)
-    abstract fun bindHomeFragmentViewModel(viewModel: HomeFragmentViewModel): ViewModel
+    @ViewModelKey(HomeViewModel::class)
+    abstract fun bindHomeFragmentViewModel(viewModel: HomeViewModel): ViewModel
 
     @Module
     companion object {
