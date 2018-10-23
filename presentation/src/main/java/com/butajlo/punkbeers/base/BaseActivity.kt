@@ -6,8 +6,13 @@ import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.navigation.findNavController
 import com.butajlo.daggerx.DaggerAppCompatActivity
+import com.butajlo.punkbeers.view.interceptor.ActivityViewInterceptor
+import javax.inject.Inject
 
 abstract class BaseActivity : DaggerAppCompatActivity() {
+
+    @Inject
+    lateinit var activityViewInterceptor: ActivityViewInterceptor
 
     @LayoutRes
     abstract fun layoutRes(): Int
@@ -22,7 +27,7 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layoutRes())
+        activityViewInterceptor.setContentView(this, layoutRes())
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {

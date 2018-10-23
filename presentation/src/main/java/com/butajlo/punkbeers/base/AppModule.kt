@@ -1,5 +1,6 @@
 package com.butajlo.punkbeers.base
 
+import android.content.Context
 import com.butajlo.punkbeers.App
 import com.butajlo.punkbeers.data.repository.PunkRepositoryImpl
 import com.butajlo.punkbeers.di.AppScope
@@ -21,7 +22,8 @@ abstract class AppModule {
 
         @AppScope
         @Provides
-        fun provideAppContext(app: App) = app.applicationContext
+        @JvmStatic
+        fun provideAppContext(app: App): Context = app.applicationContext
     }
 
 }

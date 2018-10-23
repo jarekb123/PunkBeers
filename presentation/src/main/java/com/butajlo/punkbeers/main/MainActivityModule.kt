@@ -5,6 +5,7 @@ import com.butajlo.punkbeers.screens.details.DetailsFragment
 import com.butajlo.punkbeers.screens.details.DetailsModule
 import com.butajlo.punkbeers.screens.home.HomeFragment
 import com.butajlo.punkbeers.screens.home.HomeModule
+import com.butajlo.punkbeers.view.interceptor.ActivityInterceptorModule
 import com.butajlo.punkbeers.view.viewmodel.ViewModelModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

@@ -3,6 +3,7 @@ package com.butajlo.punkbeers.view.interceptor
 import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Switch
 import com.butajlo.punkbeers.R
 import com.butajlo.punkbeers.prefs.DebugPreferences
@@ -16,6 +17,10 @@ class DebugActivityInterceptor @Inject constructor(private val debugPreferences:
     override fun setContentView(activity: Activity, layoutRes: Int) {
         debugLayout = LayoutInflater.from(activity).inflate(R.layout.debug_drawer, null)
         initDebugPrefs()
+
+        val activityLayout = LayoutInflater.from(activity).inflate(layoutRes, null)
+        debugLayout.findViewById<ViewGroup>(R.id.debug_activity_container).addView(activityLayout)
+        activity.setContentView(debugLayout)
     }
 
     private fun initDebugPrefs() {
@@ -23,7 +28,6 @@ class DebugActivityInterceptor @Inject constructor(private val debugPreferences:
             isChecked = debugPreferences.isMockResponsesEnabled
             setOnCheckedChangeListener { _, isChecked -> debugPreferences.isMockResponsesEnabled = isChecked }
         }
-
     }
 
 }

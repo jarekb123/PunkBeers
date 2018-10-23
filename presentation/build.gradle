@@ -34,15 +34,17 @@ kapt {
 
 dependencies {
 
+    def kotlinDep = rootProject.ext.kotlinDependencies
+    def presentationDep = rootProject.ext.presentationDependencies
+    def daggerDependencies = rootProject.ext.daggerDependencies
+    def rxDep = rootProject.ext.rxDependencies
+    def networkDep = rootProject.ext.networkDependencies
+
     implementation project(":domain")
     implementation project(":data")
-    implementation project(":network")
     implementation project(':androidx-dagger')
 
-    def kotlinDep = rootProject.ext.kotlinDependencies
     implementation kotlinDep.kotlin
-
-    def presentationDep = rootProject.ext.presentationDependencies
 
     implementation presentationDep.androidKtx
 
@@ -51,7 +53,7 @@ dependencies {
     implementation presentationDep.cardView
     implementation presentationDep.constraintLayout
 
-    implementation presentationDep.lifecycleAwareComponents
+    implementation      presentationDep.lifecycleAwareComponents
     annotationProcessor presentationDep.lifecycleAwareCompiler
 
     implementation presentationDep.navigationFragment
@@ -60,16 +62,21 @@ dependencies {
     implementation presentationDep.picasso
 
 
-    def daggerDependencies = rootProject.ext.daggerDependencies
-    implementation daggerDependencies.dagger
-    kapt daggerDependencies.daggerCompiler
-    implementation daggerDependencies.daggerAndroid
-    kapt daggerDependencies.daggerAndroidProcessor
+    implementation  daggerDependencies.dagger
+    kapt            daggerDependencies.daggerCompiler
+    implementation  daggerDependencies.daggerAndroid
+    kapt            daggerDependencies.daggerAndroidProcessor
 
-    def rxDep = rootProject.ext.rxDependencies
     implementation rxDep.rxJava
     implementation rxDep.rxAndroid
     implementation rxDep.rxKotlin
+
+    implementation networkDep.retrofit
+    implementation networkDep.retrofitGsonConverter
+    implementation networkDep.retrofitRxAdapter
+
+    implementation networkDep.okHttp
+    implementation networkDep.loggingInterceptor
 
     testImplementation 'junit:junit:4.12'
 
